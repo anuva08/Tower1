@@ -6,7 +6,6 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var ball,ground;
 var stand1,stand2;
-var ball,ballBody;
 var polygon_img;
 var blocks1,blocks2,blocks3,blocks3,blocks4,blocks5,blocks6,blocks7,blocks8,blocks9;
 var chain;
@@ -57,7 +56,7 @@ function setup() {
   ball = Bodies.circle(100 , 100 ,20,{restitution:0.5, isStatic:false});
 	World.add(world, ball);
 
-  chain = new Slingshot (ball.body,{x :100,y:100});
+  chain = new Slingshot (this.ball,{x :100,y:100});
 	
   Engine.run(engine);
   
@@ -113,11 +112,11 @@ function draw() {
   imageMode(CENTER);
   image(polygon_img,ballBody.position.x,ballBody.position.y,50,50);
 }
- //function mouseDragged(){
- //Matter.Body.setPosition(ball.body,{x : mouseX , y : mouseY});
+ function mouseDragged(){
+ Matter.Body.setPosition(this.ball,{x : mouseX , y : mouseY});
 	  
-//	}
+}
 	
-	//function mouseReleased(){
-	//	chain.fly();
-//	}
+function mouseReleased(){
+	chain.fly();
+}

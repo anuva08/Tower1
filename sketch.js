@@ -110,7 +110,7 @@ function draw() {
   chain.display();
   
   imageMode(CENTER);
-  image(polygon_img,ballBody.position.x,ballBody.position.y,50,50);
+  image(polygon_img,ball.position.x,ball.position.y,50,50);
 }
  function mouseDragged(){
  Matter.Body.setPosition(this.ball,{x : mouseX , y : mouseY});
